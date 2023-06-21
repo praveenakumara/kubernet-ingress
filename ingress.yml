@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-nginx-ingress
+  namespace: demo-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: praveen.buzz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo-app-svc
+            port:
+              number: 80
+               
+
